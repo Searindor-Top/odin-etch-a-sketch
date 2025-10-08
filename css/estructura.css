@@ -1,0 +1,726 @@
+*{
+	box-sizing:border-box;
+}
+
+html , body {
+	margin:0;
+	padding:0;
+}
+
+.cursorpointer{
+	cursor: pointer;
+}
+
+.cursornormal{
+	cursor: normal
+}
+
+.cursornone{
+	cursor: none;
+}
+
+.pointernone{
+	pointer-events: none;
+}
+
+.pointerall{
+	pointer-events: all;
+}
+
+.resizenone{
+	resize:none;
+}
+
+.resizevert{
+	resize:vertical;
+}
+
+.resizehor{
+	resize:horizontal;
+}
+
+/* Estructura de flexbox */
+
+.flex{
+	display:flex;
+}
+
+.textoCentrado{
+	text-align:center;
+}
+
+.centrado{
+	margin:0 auto;
+	width:98%;
+}
+
+.bold{
+	font-weight:bold;
+}
+
+.m-bordernone{
+	border:none;
+}
+
+.m-flex1{
+	flex:1;
+}
+
+.m-row{
+	flex-direction:row;
+}
+
+.m-rowrev{
+	flex-direction:row-reverse;
+}
+
+.m-col{
+	flex-direction:column;
+}
+
+.m-colrev{
+	flex-direction:column-reverse;
+}
+
+.m-wrap{
+	flex-wrap:wrap;
+}
+
+.m-jcc{
+	justify-content:center;
+}
+
+.m-jcsb{
+	justify-content:space-between;
+}
+
+.m-jcsa{
+	justify-content:space-around;
+}
+
+.m-jcfs{
+	justify-content:flex-start;
+}
+
+.m-jcfe{
+	justify-content:flex-end;
+}
+
+.m-aic{
+	align-items:center;
+}
+
+.m-aifs{
+	align-items:flex-start;
+}
+
+.m-aife{
+	align-items:flex-end;
+}
+
+.m-aibl{
+	align-items:baseline;
+}
+
+.m-ais{
+	align-items:stretch;
+}
+
+.m-asc{
+	align-self:center;
+}
+
+.m-ass{
+	align-self:start;
+}
+
+.m-ase{
+	align-self:end;
+}
+
+.m-jsc{
+	justify-self: center;
+}
+
+.m-jsfs{
+	justify-self: flex-start;   
+}
+
+
+/* Posiciones */
+
+.m-rel{
+	position: relative;
+}
+
+.m-static{
+	position: static;
+}
+
+.m-abs{
+	position: absolute;
+}
+
+.m-fixed{
+	position: fixed;
+}
+
+/* Alturas */
+
+.m-h100{
+	height:100%;
+}
+
+.m-h50{
+	height:50%;
+}
+
+.m-h0{
+	height:0;
+}
+
+/* Anchos */
+
+.m-wauto{
+	width:auto;
+}
+
+.m-wvw90{
+	width:90vw;
+}
+
+.m-w100{
+	width:100%;
+}
+
+.m-w95{
+	width:95%;
+}
+
+.m-w90{
+	width:90%;
+}
+	
+.m-w80{
+	width:80%;
+}
+
+.m-w70{
+	width:70%;
+}
+
+.m-w65{
+	width:65%;
+}
+
+.m-w60{
+	width:60%;
+}
+
+.m-w50{
+	width:50%;
+}
+	
+.m-w45{
+	width:45%;
+}
+
+.m-w40{
+	width:40%;
+}
+
+.m-w32{
+	width:32%;
+}
+
+.m-w30{
+	width:30%;
+}
+
+.m-w25{
+	width:25%;
+}
+
+.m-w23{
+	width:23%;
+}
+	
+.m-w20{
+	width:20%;
+}	
+
+.m-w15{
+	width:15%;
+}
+	
+.m-w10{
+	width:10%;
+}
+
+.m-hidden{
+	display:none;
+}
+
+.m-display{
+	display:block;
+}
+
+.m-inherit{
+	color:inherit;
+}
+
+@media (min-width:601px){
+	.centrado{
+		width:98%;
+	}
+
+	.t-flex1{
+		flex:1;
+	}
+
+	.t-bordernone{
+		border:none;
+	}
+
+	.t-row{
+		flex-direction:row;
+	}
+
+	.t-rowrev{
+		flex-direction:row-reverse;
+	}
+
+	.t-col{
+		flex-direction:column;
+	}
+
+	.t-colrev{
+		flex-direction:column-reverse;
+	}
+
+	.t-wrap{
+		flex-wrap:wrap;
+	}
+
+	.t-jcc{
+		justify-content:center;
+	}
+
+	.t-jcsb{
+		justify-content:space-between;
+	}
+
+	.t-jcsa{
+		justify-content:space-around;
+	}
+
+	.t-jcfs{
+		justify-content:flex-start;
+	}
+
+	.t-jcfe{
+		justify-content:flex-end;
+	}
+
+	.t-aic{
+		align-items:center;
+	}
+
+	.t-aifs{
+		align-items:flex-start;
+	}
+
+	.t-aife{
+		align-items:flex-end;
+	}
+
+	.t-aibl{
+		align-items:baseline;
+	}
+
+	.t-ais{
+		align-items:stretch;
+	}
+		
+	.t-asc{
+		align-self:center;
+	}
+
+	.t-ass{
+		align-self:start;
+	}
+
+	.t-ase{
+		align-self:end;
+	}
+
+	.t-jsc{
+		justify-self: center;
+	}
+	
+	.t-jsfs{
+		justify-self: flex-start;   
+	}
+
+	.t-rel{
+		position: relative;
+	}
+	
+	.t-static{
+		position: static;
+	}
+	
+	.t-abs{
+		position: absolute;
+	}
+	
+	.t-fixed{
+		position: fixed;
+	}
+
+	.t-h100{
+		height:100%;
+	}
+	
+	.t-h50{
+		height:50%;
+	}
+	
+	.t-h0{
+		height:0;
+	}
+
+	.t-wvw90{
+		width:90vw;
+	}
+
+	.t-w100{
+		width:100%;
+	}
+
+	.t-w95{
+		width:95%;
+	}
+
+	.t-w90{
+		width:90%;
+	}
+		
+	.t-w80{
+		width:80%;
+	}
+
+	.t-w70{
+		width:70%;
+	}
+	
+	.t-w65{
+		width:65%;
+	}
+
+	.t-w60{
+		width:60%;
+	}
+
+	.t-w50{
+		width:50%;
+	}
+	
+			
+	.t-w45{
+		width:45%;
+	}
+	
+	.t-w40{
+		width:40%;
+	}
+
+	.t-w33{
+		width:33%;
+	}
+
+	.t-w32{
+		width:32%;
+	}
+
+	.t-w30{
+		width:30%;
+	}
+
+	.t-w25{
+		width:25%;
+	}
+
+	.t-w23{
+		width:23%;
+	}
+		
+	.t-w20{
+		width:20%;
+	}
+	
+	.t-w15{
+		width:15%;
+	}	
+		
+	.t-w10{
+		width:10%;
+	}
+
+	.t-wauto{
+		width:auto;
+	}
+
+	.t-hidden{
+		display:none;
+	}
+	
+	.t-display{
+		display:block;
+	}
+
+	.t-flex{
+		display:flex;
+	}
+	
+	.t-inherit{
+		color:inherit;
+	}
+}
+
+
+@media (min-width:901px){
+	.centrado{
+		width:98%;
+	}
+
+	.p-flex1{
+		flex:1;
+	}
+
+	.p-bordernone{
+		border:none;
+	}
+
+	.p-row{
+		flex-direction:row;
+	}
+
+	.p-rowrev{
+		flex-direction:row-reverse;
+	}
+
+	.p-col{
+		flex-direction:column;
+	}
+
+	.p-colrev{
+		flex-direction:column-reverse;
+	}
+
+	.p-wrap{
+		flex-wrap:wrap;
+	}
+
+	.p-jcc{
+		justify-content:center;
+	}
+
+	.p-jcsb{
+		justify-content:space-between;
+	}
+
+	.p-jcsa{
+		justify-content:space-around;
+	}
+
+	.p-jcfs{
+		justify-content:flex-start;
+	}
+
+	.p-jcfe{
+		justify-content:flex-end;
+	}
+
+	.p-aic{
+		align-items:center;
+	}
+
+	.p-aifs{
+		align-items:flex-start;
+	}
+
+	.p-aife{
+		align-items:flex-end;
+	}
+
+	.p-aibl{
+		align-items:baseline;
+	}
+	
+	.p-ais{
+		align-items:stretch;
+	}
+
+		
+	.p-asc{
+		align-self:center;
+	}
+
+	.p-ass{
+		align-self:start;
+	}
+
+	.p-ase{
+		align-self:end;
+	}
+
+	.p-jsc{
+		justify-self: center;
+	}
+	
+	.p-jsfs{
+		justify-self: flex-start;   
+	}
+
+	.p-rel{
+		position: relative;
+	}
+	
+	.p-static{
+		position: static;
+	}
+	
+	.p-abs{
+		position: absolute;
+	}
+	
+	.p-fixed{
+		position: fixed;
+	}
+
+	.p-wvw90{
+		width:90vw;
+	}
+
+	.p-h100{
+		height:100%;
+	}
+	
+	.p-h50{
+		height:50%;
+	}
+	
+	.p-h0{
+		height:0;
+	}
+
+	.p-w100{
+		width:100%;
+	}
+	
+	.p-w95{
+		width:95%;
+	}
+
+	.p-w90{
+		width:90%;
+	}
+		
+	.p-w80{
+		width:80%;
+	}
+
+	.p-w70{
+		width:70%;
+	}
+	
+	.p-w68{
+		width:68%;
+	}
+
+	.p-w65{
+		width:65%;
+	}
+
+	.p-w60{
+		width:60%;
+	}
+
+	.p-w50{
+		width:50%;
+	}
+	
+	.p-w45{
+		width:45%;
+	}
+
+	.p-w40{
+		width:40%;
+	}
+
+	.p-w32{
+		width:32%;
+	}
+
+	.p-w30{
+		width:30%;
+	}
+		
+	.p-w25{
+		width:25%;
+	}
+	
+	.p-w22{
+		width:22%;
+	}	
+		
+	.p-w20{
+		width:20%;
+	}	
+	
+	
+	.p-w15{
+		width:15%;
+	}
+
+	.p-w10{
+		width:10%;
+	}
+
+    .p-wauto{
+        width: auto;
+    }
+
+	.p-hidden{
+		display:none;
+	}
+	
+	.p-display{
+		display:block;
+	}
+	
+	.p-inherit{
+		color:inherit;
+	}
+
+	.p-flex{
+		display:flex;
+	}
+}
+
+
+@media (min-width:1001px){
+	.centrado{
+		width:96%;
+	}
+	
+}
+
+@media (min-width:1300px){
+	.centrado{
+		width:1200px;
+	}
+	
+}
+
