@@ -9,12 +9,36 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <div>
-        <img style="z-index:1" src="./img/etch-a-sketch-frame.png" alt="" srcset="">
-    </div>
-    <div style="z-index:-1;position:fixed; top:169px; left:427px; width:680px; height:500px; background-color:blue;">
+    <div id="page-container">
+         <div id="title-container">
+            <h1>Etch-a-sketch</h1>
+        </div>
+        <div id="content-container" class="flex m-jcc m-ais">
+            <div id="menu-container" class="flex m-col">
+                <div id="grid-selector-container" class="flex m-col">
+                    <h3 class="center">Choose size:</h3>
+                    <input type="range" class="m-w100" value="0" min="0" max="3" step="1" id="grid-selector">
+                    <h4 class="center">16x16</h4>
+                </div>
+                <div id="choose-color-container" class="flex m-col m-aic m-jcc">
+                    <h3>Current color</h3>
+                    <input type="color" id="choose-color" value="#000000">
+                </div>
+                <div id="button-options-container">
+                    <button class="m-w100"><span class="rainbow">Rainbow</span></button>
+                    <button class="m-w100 border">Toggle border</button>
+                    <button class="m-w100 clear">Clear grid</button>
+                </div>
+            </div>
+            <div id="frame-container" class="flex m-jcc m-aic">
+                <img src="./img/etch-a-sketch-frame2.png" alt="" srcset="">
+            </div>
+        </div>
+        
+        <div id="sketch-container" class="flex m-wrap">
 
+        </div>
+        <script src="./js/main.js"></script>
     </div>
-    <script src="./js/main.js"></script>
 </body>
 </html>

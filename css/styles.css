@@ -1,0 +1,98 @@
+html{
+    font-family:Roboto;
+}
+#title-container h1{
+    font-size:70px;
+    font-weight:bold;
+    text-align: center;
+    background-color: #272757;
+    color:#f4f4f4;
+    padding:30px 0;
+}
+
+#page-container{
+    background-color: rgba(134, 134, 172, 0.15);
+    border:1px solid black;
+    min-width:fit-content;
+    min-height:fit-content;
+    width:100vw;
+    height:100vh;
+}
+
+#content-container{
+    padding:20px;
+    margin-top:20px;
+}
+
+#frame-container>img{
+    z-index:-1;
+}
+
+#sketch-container{
+    z-index:1;
+    position:fixed; 
+    top: 293px;
+    left: 795px;
+    width:680px; 
+    height:500px; 
+    background-color:white;
+}
+
+#menu-container{
+    width:250px;
+    padding:20px;
+    margin-right:40px;
+    background-color:#505081;
+    border-radius:10px;
+    border:1px solid black;
+    color:#f4f4f4;
+}
+
+#menu-container>div:not(:last-child){
+    margin-bottom:20px;
+}
+
+#grid-selector-container{
+    gap:5px;
+}
+
+#choose-color-container{
+    gap:10px;
+}
+
+#button-options-container button{
+    background-color: transparent;
+    font-size:16px;
+    padding:10px 0;
+    border:1px solid #f4f4f4;
+    color: #f4f4f4;
+    font-weight:bold;
+    transition:0.4s ease;
+}
+
+#button-options-container .clear{
+    background-color: orangered;
+}
+
+
+#button-options-container button:hover{
+    background-color: #f4f4f4;
+    color: #505081;
+    cursor:pointer;
+}
+
+#button-options-container button:not(:last-child){
+    margin-bottom:20px;
+}
+
+
+.sketch-element{
+    /* width:20px;
+    height:20px; */
+    background-color:red;
+    border:1px solid black;
+}
+
+.sketch-element:hover{
+    background-color:white;
+}
