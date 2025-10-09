@@ -2,7 +2,6 @@
 
 rainbow = document.querySelector(".rainbow");
 rainbowSplitArray = rainbow.innerText.split("");
-console.log(rainbowSplitArray);
 
 let rainbowSplitArrayProcessed = [];
 rainbowSplitArray.forEach(function(item){
@@ -15,3 +14,11 @@ rainbowSplitArray.forEach(function(item){
 
 rainbowHTMLProcessed = rainbowSplitArrayProcessed.join("");
 rainbow.innerHTML = rainbowHTMLProcessed;
+
+// Always position the sketch-container relative to the frame position
+
+sketchContainer = document.querySelector("#sketch-container");
+frameContainer = document.querySelector("#frame-container");
+
+sketchContainer.style.top = (frameContainer.offsetTop + 122) + "px";
+sketchContainer.style.left = (frameContainer.offsetLeft + 117) + "px";

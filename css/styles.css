@@ -28,16 +28,6 @@ html{
     z-index:-1;
 }
 
-#sketch-container{
-    z-index:1;
-    position:fixed; 
-    top: 293px;
-    left: 795px;
-    width:680px; 
-    height:500px; 
-    background-color:white;
-}
-
 #menu-container{
     width:250px;
     padding:20px;
@@ -85,6 +75,17 @@ html{
     margin-bottom:20px;
 }
 
+
+
+#sketch-container{
+    z-index:1;
+    position:fixed; 
+    /*top: 293px;
+    left: 795px; */
+    width:680px; 
+    height:500px; 
+    background-color:white;
+}
 
 .sketch-element{
     /* width:20px;
