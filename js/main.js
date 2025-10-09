@@ -17,8 +17,15 @@ rainbow.innerHTML = rainbowHTMLProcessed;
 
 // Always position the sketch-container relative to the frame position
 
-sketchContainer = document.querySelector("#sketch-container");
-frameContainer = document.querySelector("#frame-container");
+document.addEventListener("DOMContentLoaded", repositionSketchContainer());
+window.addEventListener("resize", function(){
+    repositionSketchContainer();
+});
 
-sketchContainer.style.top = (frameContainer.offsetTop + 122) + "px";
-sketchContainer.style.left = (frameContainer.offsetLeft + 117) + "px";
+function repositionSketchContainer(){
+    sketchContainer = document.querySelector("#sketch-container");
+    frameContainer = document.querySelector("#frame-container");
+
+    sketchContainer.style.top = (frameContainer.getBoundingClientRect().top + 122) + "px";
+    sketchContainer.style.left = (frameContainer.getBoundingClientRect().left + 117) + "px";
+}
