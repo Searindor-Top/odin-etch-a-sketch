@@ -65,7 +65,7 @@ html{
 }
 
 
-#button-options-container button:hover{
+#button-options-container button:hover, #button-options-container .button-active{
     background-color: #f4f4f4;
     color: #505081;
     cursor:pointer;

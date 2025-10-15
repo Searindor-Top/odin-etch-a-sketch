@@ -118,12 +118,37 @@ chooseColor.addEventListener("input", function(){
     document.head.appendChild(colorChosen);
 });
 
+// When toggled, randomise every color when hovered (rainbow)
+/*************************************REVISAR******************************************/
+
+rainbowToggle = document.querySelector("#rainbow-toggle");
+rainbowToggle.addEventListener("click", function(){
+    rainbowToggle.classList.toggle("button-active");
+    sketchElements = document.querySelectorAll(".sketch-element");
+    
+    sketchElements.forEach(function(element){
+        element.addEventListener("mouseover", function(){
+            randomRGB = "rgb(" + Math.ceil(Math.random()*255) + ", " + Math.ceil(Math.random()*255) + ", " + + Math.ceil(Math.random()*255) + ")";
+            element.style.backgroundColor = randomRGB;
+        })
+    })   
+});
+
 // Toggle border with menu button 
 
-borderChange = document.querySelector("#border-toggle");
-borderChange.addEventListener("click", function(){
-    sketchElement = document.querySelectorAll(".sketch-element");
-    sketchElement.forEach(element => element.classList.toggle("border")); 
+borderToggle = document.querySelector("#border-toggle");
+borderToggle.addEventListener("click", function(){
+    switch(Number(gridSelector.value)){
+        case 0:
+        case 1:
+            sketchElement = document.querySelectorAll(".sketch-element");
+            sketchElement.forEach(element => element.classList.toggle("border"));
+            break;
+        default:
+            alert("Grid elements too small, select another more suitable");
+            break;
+    }
+    
 });
 
 // Always position the sketch-container relative to the frame position
