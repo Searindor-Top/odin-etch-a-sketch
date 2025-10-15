@@ -118,6 +118,14 @@ chooseColor.addEventListener("input", function(){
     document.head.appendChild(colorChosen);
 });
 
+// Toggle border with menu button 
+
+borderChange = document.querySelector("#border-toggle");
+borderChange.addEventListener("click", function(){
+    sketchElement = document.querySelectorAll(".sketch-element");
+    sketchElement.forEach(element => element.classList.toggle("border")); 
+});
+
 // Always position the sketch-container relative to the frame position
 
 document.addEventListener("DOMContentLoaded", repositionSketchContainer());

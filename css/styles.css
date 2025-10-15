@@ -75,7 +75,6 @@ html{
     margin-bottom:20px;
 }
 
-
 #sketch-container{
     z-index:1;
     position:fixed; 
@@ -88,35 +87,30 @@ html{
 
 .sketch-element{
     background-color:white;
-    border:1px solid black;
 }
 
 .twobytwo{
     z-index:1;
     width:2px;
     height:2px;
-    border:none;
 }
 
 .fourbyfour{
     z-index:1;
     width:4px;
     height:4px;
-    border:none;
 }
 
 .tenbyten{
     z-index:1;
     width:10px;
     height:10px;
-    border:none;
 }
 
 .twentybytwenty{
     z-index:1;
     width:20px;
     height:20px;
-    border:none;
 }
 
 .color-picked{
@@ -129,4 +123,8 @@ html{
 
 .sketch-element:hover{
     background-color:black;
+}
+
+.border{
+    border:1px solid black;
 }
