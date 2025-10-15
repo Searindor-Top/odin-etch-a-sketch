@@ -19,11 +19,11 @@ rainbow.innerHTML = rainbowHTMLProcessed;
 gridSelector = document.querySelector("#grid-selector");
 sketchContainer = document.querySelector("#sketch-container");
 
-for (let i = 1; i <= 85000; i++){
+for (let i = 1; i <= 850; i++){
     if(i === 1){sketchContainer.innerHTML = ""};
     sketchDiv = document.createElement("div");
     sketchDiv.classList.add("sketch-element");
-    sketchDiv.classList.add("twobytwo");
+    sketchDiv.classList.add("twentybytwenty");
     sketchContainer.appendChild(sketchDiv);
 }
 
@@ -33,16 +33,16 @@ gridDimension = document.querySelector("#grid-dimension");
 gridSelector.oninput = function(e){
     switch(Number(this.value)){
         case 0:
-            gridDimension.innerText = "2x2";
+            gridDimension.innerText = "34x25";
             break;
         case 1:
-            gridDimension.innerText = "4x4";
+            gridDimension.innerText = "68x50";
             break;
         case 2:
-            gridDimension.innerText = "10x10";
+            gridDimension.innerText = "170x125";
             break;
         case 3:
-            gridDimension.innerText = "20x20";
+            gridDimension.innerText = "340x250";
             break;
         default:
             gridDimension.innerText = "Error";
@@ -55,24 +55,15 @@ gridSelector.oninput = function(e){
 gridSelector.addEventListener("change", function(){
     switch(Number(gridSelector.value)){
         case 0:
-            for (let i = 1; i <= 85000; i++){
+            for (let i = 1; i <= 850; i++){
                 if(i === 1){sketchContainer.innerHTML = ""};
                 sketchDiv = document.createElement("div");
                 sketchDiv.classList.add("sketch-element");
-                sketchDiv.classList.add("twobytwo");
+                sketchDiv.classList.add("twentybytwenty");
                 sketchContainer.appendChild(sketchDiv);
             }
             break;
         case 1:
-            for (let i = 1; i <= 21250; i++){
-                if(i === 1){sketchContainer.innerHTML = ""};
-                sketchDiv = document.createElement("div");
-                sketchDiv.classList.add("sketch-element");
-                sketchDiv.classList.add("fourbyfour");
-                sketchContainer.appendChild(sketchDiv);
-            }
-            break;
-        case 2:
             for (let i = 1; i <= 3400; i++){
                 if(i === 1){sketchContainer.innerHTML = ""};
                 sketchDiv = document.createElement("div");
@@ -81,12 +72,21 @@ gridSelector.addEventListener("change", function(){
                 sketchContainer.appendChild(sketchDiv);
             }
             break;
-        case 3:
-            for (let i = 1; i <= 850; i++){
+        case 2:
+            for (let i = 1; i <= 21250; i++){
                 if(i === 1){sketchContainer.innerHTML = ""};
                 sketchDiv = document.createElement("div");
                 sketchDiv.classList.add("sketch-element");
-                sketchDiv.classList.add("twentybytwenty");
+                sketchDiv.classList.add("fourbyfour");
+                sketchContainer.appendChild(sketchDiv);
+            }
+            break;
+        case 3:
+            for (let i = 1; i <= 85000; i++){
+                if(i === 1){sketchContainer.innerHTML = ""};
+                sketchDiv = document.createElement("div");
+                sketchDiv.classList.add("sketch-element");
+                sketchDiv.classList.add("twobytwo");
                 sketchContainer.appendChild(sketchDiv);
             }
             break;

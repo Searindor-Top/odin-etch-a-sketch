@@ -87,7 +87,7 @@ html{
 }
 
 .sketch-element{
-    background-color:red;
+    background-color:white;
     border:1px solid black;
 }
 
@@ -120,5 +120,5 @@ html{
 }
 
 .sketch-element:hover{
-    background-color:white;
+    background-color:black;
 }
