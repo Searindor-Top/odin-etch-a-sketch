@@ -119,6 +119,14 @@ html{
     border:none;
 }
 
+.color-picked{
+    background-color:white;
+}
+
+.color-chosen:hover{
+    background-color:black;
+}
+
 .sketch-element:hover{
     background-color:black;
 }

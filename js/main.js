@@ -24,6 +24,7 @@ for (let i = 1; i <= 850; i++){
     sketchDiv = document.createElement("div");
     sketchDiv.classList.add("sketch-element");
     sketchDiv.classList.add("twentybytwenty");
+    sketchDiv.classList.add("color-chosen");
     sketchContainer.appendChild(sketchDiv);
 }
 
@@ -60,6 +61,7 @@ gridSelector.addEventListener("change", function(){
                 sketchDiv = document.createElement("div");
                 sketchDiv.classList.add("sketch-element");
                 sketchDiv.classList.add("twentybytwenty");
+                sketchDiv.classList.add("color-chosen");
                 sketchContainer.appendChild(sketchDiv);
             }
             break;
@@ -69,6 +71,7 @@ gridSelector.addEventListener("change", function(){
                 sketchDiv = document.createElement("div");
                 sketchDiv.classList.add("sketch-element");
                 sketchDiv.classList.add("tenbyten");
+                sketchDiv.classList.add("color-chosen");
                 sketchContainer.appendChild(sketchDiv);
             }
             break;
@@ -78,6 +81,7 @@ gridSelector.addEventListener("change", function(){
                 sketchDiv = document.createElement("div");
                 sketchDiv.classList.add("sketch-element");
                 sketchDiv.classList.add("fourbyfour");
+                sketchDiv.classList.add("color-chosen");
                 sketchContainer.appendChild(sketchDiv);
             }
             break;
@@ -87,6 +91,7 @@ gridSelector.addEventListener("change", function(){
                 sketchDiv = document.createElement("div");
                 sketchDiv.classList.add("sketch-element");
                 sketchDiv.classList.add("twobytwo");
+                sketchDiv.classList.add("color-chosen");
                 sketchContainer.appendChild(sketchDiv);
             }
             break;
@@ -94,6 +99,23 @@ gridSelector.addEventListener("change", function(){
             alert("Incorrect slider value, grid will not be made");
             break;
     }
+});
+
+// Change color of the hover whenever user changes color
+
+chooseColor = document.querySelector("#choose-color");
+chooseColor.addEventListener("input", function(){
+    colorChosen = document.createElement("style");
+    colorChosen.textContent = ` 
+        .color-chosen:hover{
+            background-color: ${chooseColor.value};
+        }
+    `
+    colorChosenChecker = document.querySelector("style");
+    if(colorChosenChecker !== null){
+        document.head.removeChild(colorChosenChecker);
+    };
+    document.head.appendChild(colorChosen);
 });
 
 // Always position the sketch-container relative to the frame position
