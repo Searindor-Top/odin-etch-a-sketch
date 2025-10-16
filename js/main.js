@@ -118,6 +118,9 @@ chooseColor.addEventListener("input", function(){
     };
     document.head.appendChild(colorChosen);
     
+    if(rainbowToggle.classList.contains("button-active") === true){
+        rainbowToggle.classList.remove("button-active");
+    }
     chooseColorLogic();
 });
 
@@ -154,10 +157,14 @@ function chooseColorLogic(){
 rainbowToggle = document.querySelector("#rainbow-toggle");
 rainbowToggle.addEventListener("click", function () {
     rainbowToggle.classList.toggle("button-active");
-
-    sketchContainer.addEventListener("mousedown", handleMouseDown);
-    sketchContainer.addEventListener("mouseup", handleMouseUp);
-    sketchContainer.addEventListener("click", handleMouseMove);
+    if(rainbowToggle.classList.contains("button-active") === true){
+        sketchContainer.addEventListener("mousedown", handleMouseDown);
+        sketchContainer.addEventListener("mouseup", handleMouseUp);
+        sketchContainer.addEventListener("click", handleMouseMove);
+    } else {
+        chooseColorLogic();
+    }
+    
 
     // It constructs the string of random RGB colors and assigns it as background color when mousemoved
     function handleMouseMove(event) {
