@@ -119,7 +119,7 @@ chooseColor.addEventListener("input", function(){
 });
 
 // When toggled, randomise every color when being clicked and moved (rainbow)
-/*************************************REVISAR******************************************/
+// NOTE: For polishing reasons, it could be nice to not make a element change color repeatedly when firing the event without leaving
 
 rainbowToggle = document.querySelector("#rainbow-toggle");
 rainbowToggle.addEventListener("click", function () {
@@ -169,7 +169,16 @@ borderToggle.addEventListener("click", function(){
             alert("Grid elements too small, select another more suitable");
             break;
     }
-    
+});
+
+// Clear grid when clicked
+
+clearGrid = document.querySelector("#clear-grid");
+clearGrid.addEventListener("click", function(){
+    sketchElements = document.querySelectorAll(".sketch-element");
+    sketchElements.forEach(function (element) {
+        element.style.backgroundColor = "rgb(255,255,255)";
+    });
 });
 
 // Always position the sketch-container relative to the frame position
