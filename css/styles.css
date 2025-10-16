@@ -69,7 +69,7 @@ html{
     background-color: orangered;
 }
 
-#button-options-container button:hover, .eraser:hover, #button-options-container .button-active{
+#button-options-container button:hover, .eraser:hover, #button-options-container .button-active, #eraser.button-active{
     background-color: #f4f4f4;
     color: #505081;
     cursor:pointer;

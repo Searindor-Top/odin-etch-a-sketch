@@ -56,6 +56,8 @@ gridSelector.oninput = function(e){
 gridSelector.addEventListener("change", function(){
     switch(Number(gridSelector.value)){
         case 0:
+            resetButtons();
+            chooseColorLogic();
             for (let i = 1; i <= 850; i++){
                 if(i === 1){sketchContainer.innerHTML = ""};
                 sketchDiv = document.createElement("div");
@@ -66,6 +68,8 @@ gridSelector.addEventListener("change", function(){
             }
             break;
         case 1:
+            resetButtons();
+            chooseColorLogic();
             for (let i = 1; i <= 3400; i++){
                 if(i === 1){sketchContainer.innerHTML = ""};
                 sketchDiv = document.createElement("div");
@@ -76,6 +80,8 @@ gridSelector.addEventListener("change", function(){
             }
             break;
         case 2:
+            resetButtons();
+            chooseColorLogic();
             for (let i = 1; i <= 21250; i++){
                 if(i === 1){sketchContainer.innerHTML = ""};
                 sketchDiv = document.createElement("div");
@@ -86,12 +92,15 @@ gridSelector.addEventListener("change", function(){
             }
             break;
         case 3:
+            resetButtons();
+            chooseColorLogic();
             for (let i = 1; i <= 85000; i++){
                 if(i === 1){sketchContainer.innerHTML = ""};
                 sketchDiv = document.createElement("div");
                 sketchDiv.classList.add("sketch-element");
                 sketchDiv.classList.add("twobytwo");
                 sketchDiv.classList.add("color-chosen");
+                
                 sketchContainer.appendChild(sketchDiv);
             }
             break;
@@ -101,37 +110,32 @@ gridSelector.addEventListener("change", function(){
     }
 });
 
+function resetButtons(){
+    if(rainbowToggle.classList.contains("button-active") === true){
+        rainbowToggle.classList.remove("button-active");
+    }
+    if(eraser.classList.contains("button-active") === true){
+        eraser.classList.remove("button-active");
+    }
+}
+
 // Change color of the sketch element whenever page loads and user changes color
 
 chooseColor = document.querySelector("#choose-color");
 chooseColorLogic();
-chooseColor.addEventListener("input", function(){
-    colorChosen = document.createElement("style");
-    colorChosen.textContent = ` 
-        .color-chosen:hover{
-            background-color: ${chooseColor.value};
-        }
-    `
-    colorChosenChecker = document.querySelector("style");
-    if(colorChosenChecker !== null){
-        document.head.removeChild(colorChosenChecker);
-    };
-    document.head.appendChild(colorChosen);
-    
-    if(rainbowToggle.classList.contains("button-active") === true){
-        rainbowToggle.classList.remove("button-active");
-    }
+chooseColor.addEventListener("input", function(){  
+    resetButtons();
     chooseColorLogic();
 });
 
-function chooseColorLogic(){
+function chooseColorLogic(color = chooseColor.value){
     sketchContainer.addEventListener("mousedown", handleMouseDown);
     sketchContainer.addEventListener("mouseup", handleMouseUp);
     sketchContainer.addEventListener("click", handleMouseMove);
 
     // It assigns the color picked by the user as background color when mousemoved
     function handleMouseMove(event) {
-        event.target.style.backgroundColor = chooseColor.value;
+        event.target.style.backgroundColor = color;
     }
 
     // When mouse is in mousedown state (button holded) it gives to every sketch element a listener where it calls the handleMouseMove
@@ -151,6 +155,28 @@ function chooseColorLogic(){
     }
 }
 
+// Eraser button
+
+eraser = document.querySelector("#eraser");
+eraser.addEventListener("click", function(){
+    eraser.classList.toggle("button-active");
+    colorChosen = document.createElement("style");
+    colorChosen.textContent = ` 
+        .color-chosen:hover{
+            background-color: rgb(255,255,255) !important;
+        }
+    `
+    colorChosenChecker = document.querySelector("style");
+    if(colorChosenChecker !== null){
+        document.head.removeChild(colorChosenChecker);
+    };
+    document.head.appendChild(colorChosen);
+    if(rainbowToggle.classList.contains("button-active") === true){
+        rainbowToggle.classList.remove("button-active");
+    }
+    chooseColorLogic("rgb(255,255,255)");
+});
+
 // When toggled, randomise every color when being clicked and moved (rainbow)
 // NOTE: For polishing reasons, it could be nice to not make a element change color repeatedly when firing the event without leaving
 
@@ -158,6 +184,9 @@ rainbowToggle = document.querySelector("#rainbow-toggle");
 rainbowToggle.addEventListener("click", function () {
     rainbowToggle.classList.toggle("button-active");
     if(rainbowToggle.classList.contains("button-active") === true){
+        if(eraser.classList.contains("button-active") === true){
+            eraser.classList.remove("button-active");
+        }
         sketchContainer.addEventListener("mousedown", handleMouseDown);
         sketchContainer.addEventListener("mouseup", handleMouseUp);
         sketchContainer.addEventListener("click", handleMouseMove);
@@ -172,6 +201,17 @@ rainbowToggle.addEventListener("click", function () {
             Math.ceil(Math.random() * 255) + ", " +
             Math.ceil(Math.random() * 255) + ", " +
             Math.ceil(Math.random() * 255) + ")";
+        colorChosen = document.createElement("style");
+        colorChosen.textContent = ` 
+            .color-chosen:hover{
+                background-color: ${randomRGB} !important;
+            }
+        `
+        colorChosenChecker = document.querySelector("style");
+        if(colorChosenChecker !== null){
+            document.head.removeChild(colorChosenChecker);
+        };
+        document.head.appendChild(colorChosen);
         event.target.style.backgroundColor = randomRGB;
     }
 
