@@ -50,7 +50,7 @@ html{
     gap:10px;
 }
 
-#button-options-container button{
+#button-options-container button, .eraser{
     background-color: transparent;
     font-size:16px;
     padding:10px 0;
@@ -60,12 +60,16 @@ html{
     transition:0.4s ease;
 }
 
+.eraser{
+    padding: 10px 20px;
+    margin-left: 10px;
+}
+
 #button-options-container .clear{
     background-color: orangered;
 }
 
-
-#button-options-container button:hover, #button-options-container .button-active{
+#button-options-container button:hover, .eraser:hover, #button-options-container .button-active{
     background-color: #f4f4f4;
     color: #505081;
     cursor:pointer;

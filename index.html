@@ -23,9 +23,14 @@
                     <input type="range" class="m-w100" value="0" min="0" max="3" step="1" id="grid-selector">
                     <h4 class="center" id="grid-dimension">34x25</h4>
                 </div>
-                <div id="choose-color-container" class="flex m-col m-aic m-jcc">
-                    <h3>Current color</h3>
-                    <input type="color" id="choose-color" value="#000000">
+                <div id="choose-color-container" class="flex m-aic m-jcc">
+                    <div class="flex m-col m-aic m-jcc">
+                        <h3>Current color</h3>
+                        <input type="color" id="choose-color" value="#000000">
+                    </div>
+                    <div class="flex m-aic m-jcc">
+                        <button class="eraser">Eraser</button>
+                    </div>
                 </div>
                 <div id="button-options-container">
                     <button class="m-w100" id="rainbow-toggle"><span class="rainbow">Rainbow</span></button>
