@@ -116,6 +116,30 @@ chooseColor.addEventListener("input", function(){
         document.head.removeChild(colorChosenChecker);
     };
     document.head.appendChild(colorChosen);
+
+    sketchContainer.addEventListener("mousedown", handleMouseDown);
+    sketchContainer.addEventListener("mouseup", handleMouseUp);
+
+    // It constructs the string of random RGB colors and assigns it as background color when mousemoved
+    function handleMouseMove(event) {
+        event.target.style.backgroundColor = chooseColor.value;
+    }
+
+    // When mouse is in mousedown state (button holded) it gives to every sketch element a listener where it calls the handleMouseMove
+    function handleMouseDown() {
+        sketchElements = document.querySelectorAll(".sketch-element");
+        sketchElements.forEach(function (element) {
+            element.addEventListener("mousemove", handleMouseMove);
+        });
+    }
+
+    // When mouse is in mouseup state (button released) it removes the listener to every element
+    function handleMouseUp() {
+        sketchElements = document.querySelectorAll(".sketch-element");
+        sketchElements.forEach(function (element) {
+            element.removeEventListener("mousemove", handleMouseMove);
+        });
+    }
 });
 
 // When toggled, randomise every color when being clicked and moved (rainbow)
