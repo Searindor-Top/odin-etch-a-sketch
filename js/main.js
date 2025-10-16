@@ -201,17 +201,6 @@ rainbowToggle.addEventListener("click", function () {
             Math.ceil(Math.random() * 255) + ", " +
             Math.ceil(Math.random() * 255) + ", " +
             Math.ceil(Math.random() * 255) + ")";
-        colorChosen = document.createElement("style");
-        colorChosen.textContent = ` 
-            .color-chosen:hover{
-                background-color: ${randomRGB} !important;
-            }
-        `
-        colorChosenChecker = document.querySelector("style");
-        if(colorChosenChecker !== null){
-            document.head.removeChild(colorChosenChecker);
-        };
-        document.head.appendChild(colorChosen);
         event.target.style.backgroundColor = randomRGB;
     }
 
