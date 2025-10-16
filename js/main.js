@@ -101,9 +101,10 @@ gridSelector.addEventListener("change", function(){
     }
 });
 
-// Change color of the hover whenever user changes color
+// Change color of the sketch element whenever page loads and user changes color
 
 chooseColor = document.querySelector("#choose-color");
+chooseColorLogic();
 chooseColor.addEventListener("input", function(){
     colorChosen = document.createElement("style");
     colorChosen.textContent = ` 
@@ -116,11 +117,16 @@ chooseColor.addEventListener("input", function(){
         document.head.removeChild(colorChosenChecker);
     };
     document.head.appendChild(colorChosen);
+    
+    chooseColorLogic();
+});
 
+function chooseColorLogic(){
     sketchContainer.addEventListener("mousedown", handleMouseDown);
     sketchContainer.addEventListener("mouseup", handleMouseUp);
+    sketchContainer.addEventListener("click", handleMouseMove);
 
-    // It constructs the string of random RGB colors and assigns it as background color when mousemoved
+    // It assigns the color picked by the user as background color when mousemoved
     function handleMouseMove(event) {
         event.target.style.backgroundColor = chooseColor.value;
     }
@@ -140,7 +146,7 @@ chooseColor.addEventListener("input", function(){
             element.removeEventListener("mousemove", handleMouseMove);
         });
     }
-});
+}
 
 // When toggled, randomise every color when being clicked and moved (rainbow)
 // NOTE: For polishing reasons, it could be nice to not make a element change color repeatedly when firing the event without leaving
@@ -151,6 +157,7 @@ rainbowToggle.addEventListener("click", function () {
 
     sketchContainer.addEventListener("mousedown", handleMouseDown);
     sketchContainer.addEventListener("mouseup", handleMouseUp);
+    sketchContainer.addEventListener("click", handleMouseMove);
 
     // It constructs the string of random RGB colors and assigns it as background color when mousemoved
     function handleMouseMove(event) {
