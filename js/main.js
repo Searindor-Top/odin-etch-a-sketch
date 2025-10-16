@@ -118,20 +118,41 @@ chooseColor.addEventListener("input", function(){
     document.head.appendChild(colorChosen);
 });
 
-// When toggled, randomise every color when hovered (rainbow)
+// When toggled, randomise every color when being clicked and moved (rainbow)
 /*************************************REVISAR******************************************/
 
 rainbowToggle = document.querySelector("#rainbow-toggle");
-rainbowToggle.addEventListener("click", function(){
+rainbowToggle.addEventListener("click", function () {
     rainbowToggle.classList.toggle("button-active");
-    sketchElements = document.querySelectorAll(".sketch-element");
+
+    sketchContainer.addEventListener("mousedown", handleMouseDown);
+    sketchContainer.addEventListener("mouseup", handleMouseUp);
+
+    // It constructs the string of random RGB colors and assigns it as background color when mousemoved
+    function handleMouseMove(event) {
+        const randomRGB = "rgb(" +
+            Math.ceil(Math.random() * 255) + ", " +
+            Math.ceil(Math.random() * 255) + ", " +
+            Math.ceil(Math.random() * 255) + ")";
+        event.target.style.backgroundColor = randomRGB;
+    }
+
+    // When mouse is in mousedown state (button holded) it gives to every sketch element a listener where it calls the handleMouseMove
+    function handleMouseDown() {
+        sketchElements = document.querySelectorAll(".sketch-element");
+        sketchElements.forEach(function (element) {
+            element.addEventListener("mousemove", handleMouseMove);
+        });
+    }
+
+    // When mouse is in mouseup state (button released) it removes the listener to every element
+    function handleMouseUp() {
+        sketchElements = document.querySelectorAll(".sketch-element");
+        sketchElements.forEach(function (element) {
+            element.removeEventListener("mousemove", handleMouseMove);
+        });
+    }
     
-    sketchElements.forEach(function(element){
-        element.addEventListener("mouseover", function(){
-            randomRGB = "rgb(" + Math.ceil(Math.random()*255) + ", " + Math.ceil(Math.random()*255) + ", " + + Math.ceil(Math.random()*255) + ")";
-            element.style.backgroundColor = randomRGB;
-        })
-    })   
 });
 
 // Toggle border with menu button 
