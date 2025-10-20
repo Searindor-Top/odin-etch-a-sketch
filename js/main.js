@@ -118,9 +118,6 @@ function resetButtons(){
     if(eraser.classList.contains("button-active") === true){
         eraser.classList.remove("button-active");
     }
-    if(ogToggle.classList.contains("button-active") === true){
-        ogToggle.classList.remove("button-active");
-    }
 }
 
 // Change color of the sketch element whenever page loads and user changes color
@@ -181,18 +178,6 @@ eraser.addEventListener("click", function(){
     resetButtons();
     eraser.classList.toggle("button-active");
     chooseColorLogic("rgb(255,255,255)");
-});
-
-// When user clicks Original Style, they color in black and opacity +10% every time they click in a square
-
-ogToggle = document.querySelector("#og-toggle");
-ogToggle.addEventListener("click", function(){
-    resetButtons();
-    ogToggle.classList.toggle("button-active");
-    colorChosen = document.querySelector(".color-chosen")
-    opacity = "0.1";
-    ogMode = true;
-    chooseColorLogic(`rgba(0,0,0,${opacity})`, ogMode);
 });
 
 // When toggled, randomise every color when being clicked and moved (rainbow)
