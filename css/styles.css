@@ -79,10 +79,10 @@ html{
 #grid-selector::-moz-range-thumb {
   height: 15px;
   width: 15px;
-  background-color: #fff;
+  background-color: #505081;
   border-radius: 50%;
-  border: 1px solid #f50;
-  box-shadow: -407px 0 0 400px #f50;
+  border: 2px solid white;
+  box-shadow: -407px 0 0 400px white;
 }
 
 #grid-selector-container{

@@ -26,6 +26,9 @@ for (let i = 1; i <= 850; i++){
     sketchDiv.classList.add("twentybytwenty");
     sketchDiv.classList.add("color-chosen");
     sketchContainer.appendChild(sketchDiv);
+    gridSelector.value = 0;
+    gridDimension = document.querySelector("#grid-dimension");
+    gridDimension.innerText = "34x25";
 }
 
 // Change dynamically the slider grid dimension text whenever the user moves it
@@ -260,9 +263,11 @@ window.addEventListener("resize", function(){
 });
 
 function repositionSketchContainer(){
-    sketchContainer = document.querySelector("#sketch-container");
-    frameContainer = document.querySelector("#frame-container");
+    setTimeout(()=>{
+        sketchContainer = document.querySelector("#sketch-container");
+        frameContainer = document.querySelector("#frame-container");
 
-    sketchContainer.style.top = (frameContainer.getBoundingClientRect().top + 122) + "px";
-    sketchContainer.style.left = (frameContainer.getBoundingClientRect().left + 118) + "px";
+        sketchContainer.style.top = (frameContainer.getBoundingClientRect().top + 122) + "px";
+        sketchContainer.style.left = (frameContainer.getBoundingClientRect().left + 118) + "px";
+    }, 70);
 }
