@@ -111,11 +111,15 @@ gridSelector.addEventListener("change", function(){
 });
 
 function resetButtons(){
+
     if(rainbowToggle.classList.contains("button-active") === true){
         rainbowToggle.classList.remove("button-active");
     }
     if(eraser.classList.contains("button-active") === true){
         eraser.classList.remove("button-active");
+    }
+    if(ogToggle.classList.contains("button-active") === true){
+        ogToggle.classList.remove("button-active");
     }
 }
 
@@ -128,7 +132,8 @@ chooseColor.addEventListener("input", function(){
     chooseColorLogic();
 });
 
-function chooseColorLogic(color = chooseColor.value){
+function chooseColorLogic(color = chooseColor.value, ogMode = false){
+    hoverStyle(color);
     sketchContainer.addEventListener("mousedown", handleMouseDown);
     sketchContainer.addEventListener("mouseup", handleMouseUp);
     sketchContainer.addEventListener("click", handleMouseMove);
@@ -155,15 +160,11 @@ function chooseColorLogic(color = chooseColor.value){
     }
 }
 
-// Eraser button
-
-eraser = document.querySelector("#eraser");
-eraser.addEventListener("click", function(){
-    eraser.classList.toggle("button-active");
+function hoverStyle(color){
     colorChosen = document.createElement("style");
     colorChosen.textContent = ` 
         .color-chosen:hover{
-            background-color: rgb(255,255,255) !important;
+            background-color:  ${color} !important;
         }
     `
     colorChosenChecker = document.querySelector("style");
@@ -171,10 +172,27 @@ eraser.addEventListener("click", function(){
         document.head.removeChild(colorChosenChecker);
     };
     document.head.appendChild(colorChosen);
-    if(rainbowToggle.classList.contains("button-active") === true){
-        rainbowToggle.classList.remove("button-active");
-    }
+}
+
+// Eraser button
+
+eraser = document.querySelector("#eraser");
+eraser.addEventListener("click", function(){
+    resetButtons();
+    eraser.classList.toggle("button-active");
     chooseColorLogic("rgb(255,255,255)");
+});
+
+// When user clicks Original Style, they color in black and opacity +10% every time they click in a square
+
+ogToggle = document.querySelector("#og-toggle");
+ogToggle.addEventListener("click", function(){
+    resetButtons();
+    ogToggle.classList.toggle("button-active");
+    colorChosen = document.querySelector(".color-chosen")
+    opacity = "0.1";
+    ogMode = true;
+    chooseColorLogic(`rgba(0,0,0,${opacity})`, ogMode);
 });
 
 // When toggled, randomise every color when being clicked and moved (rainbow)
@@ -182,6 +200,7 @@ eraser.addEventListener("click", function(){
 
 rainbowToggle = document.querySelector("#rainbow-toggle");
 rainbowToggle.addEventListener("click", function () {
+    hoverStyle("transparent");
     rainbowToggle.classList.toggle("button-active");
     if(rainbowToggle.classList.contains("button-active") === true){
         if(eraser.classList.contains("button-active") === true){

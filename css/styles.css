@@ -79,6 +79,11 @@ html{
     margin-bottom:20px;
 }
 
+#button-options-container #og-toggle{
+    color:#a09f9f;
+    font-weight:bold;
+}
+
 #sketch-container{
     z-index:1;
     position:fixed; 
